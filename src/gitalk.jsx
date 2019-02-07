@@ -477,9 +477,9 @@ class GitalkComponent extends Component {
     }
   }
   handleLogin = () => {
-    const { comment } = this.state
-    window.localStorage.setItem(GT_COMMENT, encodeURIComponent(comment))
-    window.location.href = this.loginLink
+    const { comment } = this.state;
+    window.localStorage.setItem(GT_COMMENT, encodeURIComponent(comment));
+    window.open(this.loginLink);
   }
   handleIssueCreate = () => {
     this.setState({ isIssueCreating: true })
