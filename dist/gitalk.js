@@ -77,7 +77,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ (function(module, exports) {
 
-var core = module.exports = { version: '2.5.7' };
+var core = module.exports = { version: '2.6.4' };
 if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
@@ -2136,7 +2136,7 @@ var store = global[SHARED] || (global[SHARED] = {});
 })('versions', []).push({
   version: core.version,
   mode: __webpack_require__(20) ? 'pure' : 'global',
-  copyright: '© 2018 Denis Pushkarev (zloirock.ru)'
+  copyright: '© 2019 Denis Pushkarev (zloirock.ru)'
 });
 
 
@@ -6047,6 +6047,7 @@ var GitalkComponent = function (_Component) {
             Accept: 'application/vnd.github.v3.full+json'
           },
           params: {
+            access_token: _this.accessToken,
             client_id: clientID,
             client_secret: clientSecret,
             per_page: perPage,
@@ -6119,7 +6120,7 @@ var GitalkComponent = function (_Component) {
       var comment = _this.state.comment;
 
       window.localStorage.setItem(_const.GT_COMMENT, encodeURIComponent(comment));
-      window.location.href = _this.loginLink;
+      window.open(_this.loginLink);
     };
 
     _this.handleIssueCreate = function () {
@@ -6378,6 +6379,7 @@ var GitalkComponent = function (_Component) {
       return new _promise2.default(function (resolve, reject) {
         _util.axiosGithub.get(getUrl, {
           params: {
+            access_token: _this4.accessToken,
             client_id: clientID,
             client_secret: clientSecret,
             t: Date.now()
@@ -6414,6 +6416,7 @@ var GitalkComponent = function (_Component) {
 
       return _util.axiosGithub.get('/repos/' + owner + '/' + repo + '/issues', {
         params: {
+          access_token: this.accessToken,
           client_id: clientID,
           client_secret: clientSecret,
           labels: labels.concat(id).join(','),
@@ -6916,7 +6919,7 @@ var GitalkComponent = function (_Component) {
       var query = {
         client_id: clientID,
         redirect_uri: window.location.href,
-        scope: 'public_repo'
+        scope: 'repo'
       };
       return githubOauthUrl + '?' + (0, _util.queryStringify)(query);
     }
@@ -13256,7 +13259,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var GT_ACCESS_TOKEN = exports.GT_ACCESS_TOKEN = 'GT_ACCESS_TOKEN';
-var GT_VERSION = exports.GT_VERSION = "1.5.0"; // eslint-disable-line
+var GT_VERSION = exports.GT_VERSION = "1.5.1"; // eslint-disable-line
 var GT_COMMENT = exports.GT_COMMENT = 'GT_COMMENT';
 
 /***/ }),
