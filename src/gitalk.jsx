@@ -163,7 +163,7 @@ class GitalkComponent extends Component {
     const query = {
       client_id: clientID,
       redirect_uri: window.location.href,
-      scope: 'public_repo'
+      scope: 'repo'
     }
     return `${githubOauthUrl}?${queryStringify(query)}`
   }
