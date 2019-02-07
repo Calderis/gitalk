@@ -195,6 +195,7 @@ class GitalkComponent extends Component {
     return new Promise((resolve, reject) => {
       axiosGithub.get(getUrl, {
         params: {
+          access_token: accessToken,
           client_id: clientID,
           client_secret: clientSecret,
           t: Date.now()
@@ -222,6 +223,7 @@ class GitalkComponent extends Component {
 
     return axiosGithub.get(`/repos/${owner}/${repo}/issues`, {
       params: {
+        access_token: accessToken,
         client_id: clientID,
         client_secret: clientSecret,
         labels: labels.concat(id).join(','),
@@ -291,6 +293,7 @@ class GitalkComponent extends Component {
             Accept: 'application/vnd.github.v3.full+json'
           },
           params: {
+            access_token: accessToken,
             client_id: clientID,
             client_secret: clientSecret,
             per_page: perPage,
